@@ -1,10 +1,9 @@
 {{ define "main" }}
 
 <article>
+  {{ if eq .Type "posts" }}
   <header class="mb-20">
     <h1 class="!my-0 pb-2.5">{{ .Title }}</h1>
-
-    {{ if ne .Type "page" }}
     <div class="text-sm opacity-60">
       {{ if .Date }}
       <time>{{ .Date | time.Format "2006-01-02" }}</time>
@@ -28,8 +27,8 @@
       </span>
       {{ end }}
     </div>
-    {{ end }}
   </header>
+  {{ end }}
 
   <section>{{ .Content }}</section>
 
