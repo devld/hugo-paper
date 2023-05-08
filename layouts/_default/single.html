@@ -15,24 +15,23 @@
       <span class="mx-1">&middot;</span>
       <span>{{ $single_author }}</span>
       {{ end }}
+
+      <!-- Post Categories -->
+      {{ if .Params.categories }}
+      <span class="inline-flex flex-wrap ml-6">
+        {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
+        <a
+          class="ml-1.5 no-underline"
+          href="{{ $href }}"
+          >{{ . }}</a>
+        {{ end }}
+      </span>
+      {{ end }}
     </div>
     {{ end }}
   </header>
 
   <section>{{ .Content }}</section>
-
-    <!-- Post Categories -->
-    {{ if .Params.categories }}
-    <footer class="mt-12 flex flex-wrap">
-      {{ range .Params.categories }} {{ $href := print (absURL "categories/") (urlize .) }}
-      <a
-        class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
-        href="{{ $href }}"
-        >{{ . }}</a
-      >
-      {{ end }}
-    </footer>
-    {{ end }}
 
   <!-- Post Tags -->
   {{ if .Params.tags }}
@@ -41,7 +40,7 @@
     <a
       class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]"
       href="{{ $href }}"
-      >{{ . }}</a
+      >#{{ . }}</a
     >
     {{ end }}
   </footer>
