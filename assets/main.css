@@ -50,7 +50,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -739,17 +739,29 @@ body {
 
 .prose :where(code):not(:where([class~="not-prose"] *)) {
   color: var(--tw-prose-code);
-  font-weight: 600;
   font-size: 0.875em;
 }
 
-.prose :where(code):not(:where([class~="not-prose"] *))::before {
+.prose :where(code):not(:where([class~="not-prose"] *)) {
+  color: #555;
+  background-color: #eee;
+  padding: 2px 4px;
+  border-radius: 3px;
+  word-wrap: break-word;
+}
+
+.dark .prose :where(code):not(:where([class~="not-prose"] *)) {
+  color: #fff;
+  background-color: #444;
+}
+
+/* .prose :where(code):not(:where([class~="not-prose"] *))::before {
   content: "`";
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *))::after {
   content: "`";
-}
+} */
 
 .prose :where(a code):not(:where([class~="not-prose"] *)) {
   color: inherit;
@@ -1333,6 +1345,10 @@ body {
 
 .justify-center {
   justify-content: center;
+}
+
+.list-none {
+  list-style-type: none;
 }
 
 .gap-2 {

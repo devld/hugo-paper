@@ -1,0 +1,12 @@
+{{ define "main" }}
+{{ $plural := .Data.Plural }}
+{{ $items := .Data.Terms.ByCount }}
+<ul class="{{ if eq $plural "tags" }}flex flex-wrap list-none{{ end }}">
+  {{- range $item := $items }}
+  {{ $href := print (absURL $plural) "/" (urlize .Name) }}
+  <li class="mr-5">
+    <a class="no-underline" href="{{ $href }}">{{ if eq $plural "tags" }}#{{ end }}{{ $item.Name }}<span class="ml-1.5 text-sm opacity-60">({{ len .Pages }})</span></a>
+  </li>
+  {{- end }}
+</ul>
+{{ end }}
