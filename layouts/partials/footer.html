@@ -9,6 +9,14 @@
     <a class="link" href="{{ `` | absURL }}">{{ site.Title }}</a>
   {{end}}
   </div>
+
+  {{ $links := site.Params.links }}
+  <div class="flex gap-2">
+    {{ range $links }}
+    <a href="{{ .href }}" class="link">{{ .name }}</a>
+    {{ end }}
+  </div>
+
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >powered by hugo️️</a
   >️
